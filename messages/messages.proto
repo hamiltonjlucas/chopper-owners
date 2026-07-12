@@ -2,8 +2,6 @@ syntax = "proto3";
 
 package hamiltonjlucas.chopper_owners;
 
-import "google/protobuf/timestamp.proto";
-
 // Reference to an owner identity (user or agent)
 message OwnerRef {
   string owner_id = 1;
@@ -16,7 +14,7 @@ message Owner {
   string owner_type = 2; // "USER" or "AGENT"
   string display_name = 3;
   string avatar_url = 4;
-  google.protobuf.Timestamp created_at = 5;
+  string created_at = 5;
 }
 
 // Input for creating an owner

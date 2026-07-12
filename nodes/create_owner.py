@@ -1,13 +1,11 @@
 from gen.messages_pb2 import OwnerCreate, Owner
 from gen.axiom_context import AxiomContext
-from google.protobuf.timestamp_pb2 import Timestamp
-import time
+from datetime import datetime, timezone
 
 
 def create_owner(ax: AxiomContext, input: OwnerCreate) -> Owner:
     """Create a new owner identity (user or agent)."""
-    now = Timestamp()
-    now.FromDatetime(time.gmtime())
+    now = datetime.now(timezone.utc).isoformat()
     
     owner = Owner(
         owner_id=input.owner_id,
