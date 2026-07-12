@@ -1,7 +1,6 @@
 name: hamiltonjlucas/chopper-owners
 version: 0.1.0
 language: python
-repo_url: https://github.com/hamiltonjlucas/chopper-owners.git
 nodes:
     - name: CreateOwner
       input: OwnerCreate
