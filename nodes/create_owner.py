@@ -7,15 +7,10 @@ def create_owner(ax: AxiomContext, input: OwnerCreate) -> Owner:
     """Create a new owner identity (user or agent)."""
     now = datetime.now(timezone.utc).isoformat()
     
-    owner = Owner(
+    return Owner(
         owner_id=input.owner_id,
         owner_type=input.owner_type,
         display_name=input.display_name,
         avatar_url=input.avatar_url,
         created_at=now
     )
-    
-    # Store in agent memory for persistence
-    ax.agent.memory.set(f"owner:{input.owner_id}", owner.SerializeToString())
-    
-    return owner
