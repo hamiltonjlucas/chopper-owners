@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package hamiltonjlucas.chopper_owners;
+
+import "google/protobuf/timestamp.proto";
+
+// Reference to an owner identity (user or agent)
+message OwnerRef {
+  string owner_id = 1;
+  string owner_type = 2; // "USER" or "AGENT"
+}
+
+// Full owner record
+message Owner {
+  string owner_id = 1;
+  string owner_type = 2; // "USER" or "AGENT"
+  string display_name = 3;
+  string avatar_url = 4;
+  google.protobuf.Timestamp created_at = 5;
+}
+
+// Input for creating an owner
+message OwnerCreate {
+  string owner_id = 1;
+  string owner_type = 2; // "USER" or "AGENT"
+  string display_name = 3;
+  string avatar_url = 4;
+}
+
+// Query parameters for listing owners
+message OwnerQuery {
+  string owner_type = 1; // filter by "USER" or "AGENT"
+  int32 limit = 2; // max results (default 100)
+  int32 offset = 3;
+}

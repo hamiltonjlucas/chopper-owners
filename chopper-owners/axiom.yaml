@@ -1,0 +1,13 @@
+name: hamiltonjlucas/chopper-owners
+version: 0.1.0
+language: python
+nodes:
+    - name: CreateOwner
+      input: OwnerCreate
+      output: Owner
+    - name: GetOwner
+      input: OwnerQuery
+      output: Owner
+    - name: ListOwners
+      input: OwnerQuery
+      output: Owner
